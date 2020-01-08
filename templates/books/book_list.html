@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Livros{% endblock %}
+
+{% block main %}
+<div class="container py-4">
+    <h1 class="page-header">Books</h1>
+    <div class="mb-3">
+        <button type="button" data-url="{% url 'books:create' %}"
+            class="btn btn-primary js-create">New book</button>
+    </div>
+    <div id="books">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Type</th>
+                    <th>Pages</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="objects_list">
+                {% include 'books/book_partial_list.html' %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/books.js' %}"></script>
+{% endblock %}
