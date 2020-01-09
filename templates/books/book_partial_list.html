@@ -5,7 +5,10 @@
     <td>{{ book.author }}</td>
     <td>{{ book.get_book_type_display }}</td>
     <td>{{ book.pages }}</td>
-    <td><button type="button" data-url="{% url 'books:update' book.pk %}" class="btn btn-primary js-create">Editar</button></td>
+    <td width="200" class="text-right">
+        <button type="button" data-url="{% url 'books:update' book.pk %}" class="btn btn-primary js-create">Editar</button>
+        <button type="button" data-url="{% url 'books:delete' book.pk %}" class="btn btn-danger js-create">Excluir</button>
+    </td>
 </tr>
 {% empty %}
 <tr>

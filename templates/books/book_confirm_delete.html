@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Livros{% endblock %}
+
+{% block main %}
+<div class="container py-4">
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div>
+{% endblock %}

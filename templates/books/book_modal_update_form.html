@@ -1,15 +1,9 @@
 {% load widget_tweaks %}
 
-<form action="
-{% if object.pk %}
-{% url 'books:update' object.pk %}
-{% else %}
-{% url 'books:create' %}
-{% endif %}
-" method="post" class="js-modal-form" novalidate>
+<form action="{% url 'books:update' object.pk %}" method="post" class="js-modal-form" novalidate>
     {% csrf_token %}
     <div class="modal-header">
-        <h4 class="modal-title">Create a new book</h4>
+        <h4 class="modal-title">Editar livro: {{ object }}</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
