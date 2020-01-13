@@ -11,17 +11,19 @@
         {{ inlines.media }}
         {{ form|bootstrap }}
         {% for formset in inlines %}
+            <div id="sectors"></div>
             <div class="formset">
                 {{ formset.management_form }}
                 {% for form in formset %}
-                    <div id="{{ form.prefix }}-row" class="dynamic-form {{ formset.prefix }} border rounded mb-3 p-4">
+                    <div id="{{ form.prefix }}-row" class="{{ formset.prefix }}-row border rounded mb-3 p-4">
                         {{ form|bootstrap }}
-                        {% if not form.instance.pk %}
-                        <a id="remove-row" href="javascript:void(0)" class="delete-row">Apagar</a>
-                        {% endif %}
                     </div>
                 {% endfor %}
-                <a href="javascript:void(0)" class="add-row">add property</a>
+                <div class="d-none {{ formset.prefix }}-empty {{ formset.prefix }}-row border rounded mb-3 p-4">
+                    {{ formset.empty_form|bootstrap }}
+                    <button type="button" data-prefix="{{ formset.prefix }}" class="delete-row">Apagar</button>
+                </div>
+                <button type="button" data-prefix="{{ formset.prefix }}" class="add-row">add property</button>
             </div>
         {% endfor %}
         <button type="submit" class="btn btn-primary">Enviar</button>
@@ -31,6 +33,4 @@
 
 {% block scripts %}
 <script src="{% static 'js/jquery.formset.js' %}"></script>
-<script>
-</script>
 {% endblock %}
