@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Livros{% endblock %}
+
+{% block main %}
+<div class="container py-4">
+    <h1 class="page-header">Cities</h1>
+    <div class="mb-3">
+        <a href="{% url 'locations:create' %}" class="btn btn-primary">New city</a>
+    </div>
+    <div id="cities">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody class="objects_list">
+                {% for city in city_list %}
+                <tr>
+                    <th>{{ forloop.counter }}</th>
+                    <td>
+                        <a href="{% url 'locations:update' city.pk %}">
+                            {{ city }}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

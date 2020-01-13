@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # libs
+    'bootstrapform',
+    'extra_views',
     'widget_tweaks',
     # apps
     'apps.books',
+    'apps.locations'
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}City{% endblock %}
+
+{% block main %}
+<div class="container py-4">
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ inlines.media }}
+        {{ form|bootstrap }}
+        {% for formset in inlines %}
+            <div class="formset">
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    <div id="{{ form.prefix }}-row" class="dynamic-form {{ formset.prefix }} border rounded mb-3 p-4">
+                        {{ form|bootstrap }}
+                        {% if not form.instance.pk %}
+                        <a id="remove-row" href="javascript:void(0)" class="delete-row">Apagar</a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <a href="javascript:void(0)" class="add-row">add property</a>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/jquery.formset.js' %}"></script>
+<script>
+</script>
+{% endblock %}
