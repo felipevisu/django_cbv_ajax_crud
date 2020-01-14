@@ -12,7 +12,7 @@ class CityListView(ListView):
 class SectorInline(InlineFormSetFactory):
     model = Sector
     fields = ['name']
-    factory_kwargs = {'extra': 0}
+    factory_kwargs = {'extra': 1}
 
 
 class CityCreateView(CreateWithInlinesView):

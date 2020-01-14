@@ -1,7 +1,12 @@
 asgiref==3.2.3
+autopep8==1.4.4
 Django==3.0.2
+django-bootstrap-form==3.4
+django-extra-views==0.13.0
 django-widget-tweaks==1.4.5
 pkg-resources==0.0.0
+pycodestyle==2.5.0
 pytz==2019.3
+six==1.13.0
 sqlparse==0.3.0
 whitenoise==5.0.1
